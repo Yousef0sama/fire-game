@@ -1,0 +1,96 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  user-select: none;
+}
+
+.score {
+  text-align: center;
+  padding: 5px;
+}
+
+.player {
+  width: 30px;
+  height: 30px;
+  position: fixed;
+  background-color: blue;
+  margin: 30px 30px;
+  span {
+    border: 1px solid black;
+    display: block;
+    width: 30px;
+    height: 10px;
+    margin-top: -12px;
+    position: fixed;
+    overflow: hidden;
+    .health {
+      width: 30px;
+      margin-top: 0;
+      background-color: black;
+      color: red;
+      font-size: 8px;
+      text-align: center;
+    }
+  }
+}
+.enemy {
+  width: 30px;
+  height: 30px;
+  position: fixed;
+  background-color: red;
+  margin: 30px 30px;
+  span {
+    border: 1px solid black;
+    display: block;
+    width: 30px;
+    height: 10px;
+    margin-top: -12px;
+    position: fixed;
+    overflow: hidden;
+    .health {
+      width: 30px;
+      margin-top: 0;
+      background-color: black;
+      color: red;
+      font-size: 8px;
+      text-align: center;
+    }
+  }
+}
+.food {
+  width: 30px;
+  height: 30px;
+  margin: 30px 30px;
+  position: fixed;
+  background-color: green;
+}
+.playerBullet {
+  width: 10px;
+  height: 10px;
+  border-radius: 10px;
+  position: fixed;
+  background-color: blue;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  display: none;
+  margin: 30px 30px;
+}
+.enemyBullet {
+  width: 10px;
+  height: 10px;
+  border-radius: 10px;
+  position: fixed;
+  background-color: red;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  display: none;
+  margin: 30px 30px;
+}
