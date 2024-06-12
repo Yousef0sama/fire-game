@@ -1,12 +1,3 @@
-// massages
-
-alert("use Arrows as 'W' 'A' 'S' 'D' to move and use Space and mouse to fire");
-alert("you the blue and the red is enemy and green is food");
-alert("the fire decrease health 20");
-alert("if you kill an enemy you earn 10 points");
-alert("if you eat food you earn 5 points and your health increase 20");
-alert("if enemy arrive the right border of screen you lose 10 points");
-alert("if you died your points return 0");
 
 // Utility functions
 const getRandomHeight = () => {
@@ -23,15 +14,6 @@ const getRandomWidth = () => {
   if (x < 30) x = 30;
   if (x > window.innerWidth - 70) x = window.innerWidth - 70;
   return x;
-}
-
-const isColliding = (bullet, entity) => {
-  return (
-    bullet.x > entity.x &&
-    bullet.x < entity.x + entity.width &&
-    bullet.y > entity.y - entity.height / 2 &&
-    bullet.y < entity.y + entity.height / 2
-  );
 }
 
 // Classes
@@ -220,19 +202,17 @@ class Bullet {
   }
 
   move() {
-    const step = 1;
+    const step = 2;
     this.interval = setInterval(() => {
       this.x += this.direction === 'right' ? step : -step;
       this.element.style.left = this.x + 'px';
-      if (isColliding(this, enemy)) {
+      if (this.direction === 'right' && this.x > enemy.x && this.x < enemy.x + 30 && this.y > enemy.y - 5 && this.y < enemy.y + 30) {
         enemy.takeDamage();
         this.destroy();
-      }
-      if (isColliding(this, player)) {
+      } else if (this.direction === 'left' && this.x > player.x && this.x < player.x + 30 && this.y > player.y - 5 && this.y < player.y + 30) {
         player.takeDamage();
         this.destroy();
-      }
-      if (this.x > window.innerWidth - 40 || this.x < 0) {
+      } else if (this.x > window.innerWidth - 40 || this.x < 0) {
         this.destroy();
       }
     }, 1);
